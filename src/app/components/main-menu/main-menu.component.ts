@@ -11,6 +11,8 @@ export class MainMenuComponent implements OnInit {
 
   constructor(private mainMenuService: MainMenuService, private router:Router) { }  
   private periods = [];
+  public menus = MENUS;
+
   ngOnInit() {    
     this.mainMenuService.getAvailablePeriods()
       .subscribe(data => {
@@ -23,8 +25,24 @@ export class MainMenuComponent implements OnInit {
   mainMenuServiceError() {
     console.log("err");
   }
-  onSelect(menuId) {    
+/*  onSelect(menuId) {    
     console.log(menuId);
-    this.router.navigate([ 'monthly', menuId ]);
-  }
+    console.log(MENUS[menuId].route);
+    this.router.navigate([ MENUS[menuId].route ]);    
+  }*/
 }
+export interface MENU {  
+  label: string,
+  route: string
+}
+
+const MENUS: MENU[] = [
+  { "label" : "Load Monthly Data", "route" : "monthly"},
+  { "label" : "Tax Remittance Verfication", "route" : "verification-reports"},
+  { "label" : "Process Tax Remittance - CA", "route" : "tax-rem-ca"},
+  { "label" : "Process Tax Remittance - US", "route" : "tax-rem-us"},
+  { "label" : "Generate General Tax Report", "route" : "tax-report"},
+  { "label" : "Export Templates", "route" : "exports"},
+  { "label" : "Tax Remittance - Administration", "route" : "admin"},
+  { "label" : "Reconciliation", "route" : "admin-contacts"},
+];

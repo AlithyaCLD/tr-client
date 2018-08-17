@@ -2,6 +2,7 @@
   <h5 class="component-title">Tax Remittance - Main Menu</h5>
   <div>
       <!--<span>{{ periods | json }}</span>-->
+      <!--<span>{{ menus | json }}</span>-->
       <br>
     <span>Available Periods</span>    
     
@@ -10,13 +11,15 @@
     </select>
   </div>
   <ul>
-    <li (click)="onSelect(1)"><span>Load Monthly Data</span><span><a class="menu-anchor" href="#">+</a></span></li>
+    <li *ngFor="let menu of menus" ><a class="menu-anchor" routerLink="/{{ menu.route }}"><span>{{ menu.label }}</span><span>+</span></a></li>
+    <!--<li *ngFor="let menu of menus" ><a class="menu-anchor" (click)="onSelect(menu.id)" routerLink="menu.route"><span>{{ menu.label }}</span><span>+</span></a></li>-->
+    <!--<li (click)="onSelect(1)"><span>Load Monthly Data</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(2)"><span>Tax Remittance Verficiation</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(3)"><span>Process Tax Remittance - CA</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(4)"><span>Process Tax Remittance - US</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(5)"><span>Generate General Tax Report</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(6)"><span>Export Templates</span><span><a class="menu-anchor" href="#">+</a></span></li>
     <li (click)="onSelect(7)"><span>Tax Remittance - Administration</span><span><a class="menu-anchor" href="#">+</a></span></li>
-    <li (click)="onSelect(8)"><span>Reconciliation</span><span><a class="menu-anchor" href="#">+</a></span></li>
+    <li><a class="menu-anchor" (click)="onSelect(8)"><span>Reconciliation</span><span>+</span></a></li>-->
   </ul>
 </section>
