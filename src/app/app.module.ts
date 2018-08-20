@@ -26,6 +26,7 @@ import { MainMenuService } from './services/main-menu.service';
 import { AppRoutingModule, routingComponents } from './app-routing-module';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { PageFooterComponent } from './components/page-footer/page-footer.component';
+import { EmployeeComponent } from './components/proof-of-concept/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PageFooterComponent } from './components/page-footer/page-footer.compon
 
     routingComponents,    
     PageHeaderComponent,
-    PageFooterComponent
+    PageFooterComponent,
+    EmployeeComponent
     /*MainMenuComponent,
     MonthlyDataComponent,
     MainContainerComponent,

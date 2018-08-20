@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MainMenuService } from '../../services/main-menu.service';
 import { Router } from '@angular/router';
+import { MenuItem } from '../../models/main-menu/menu-item';
+import { Period } from '../../models/main-menu/period';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,8 +12,8 @@ import { Router } from '@angular/router';
 export class MainMenuComponent implements OnInit {
 
   constructor(private mainMenuService: MainMenuService, private router:Router) { }  
-  private periods = [];
-  public menus = MENUS;
+  private periods = []
+  private menus = menuItems;
 
   ngOnInit() {    
     this.mainMenuService.getAvailablePeriods()
@@ -25,18 +27,8 @@ export class MainMenuComponent implements OnInit {
   mainMenuServiceError() {
     console.log("err");
   }
-/*  onSelect(menuId) {    
-    console.log(menuId);
-    console.log(MENUS[menuId].route);
-    this.router.navigate([ MENUS[menuId].route ]);    
-  }*/
 }
-export interface MENU {  
-  label: string,
-  route: string
-}
-
-const MENUS: MENU[] = [
+const menuItems: MenuItem[] = [
   { "label" : "Load Monthly Data", "route" : "monthly"},
   { "label" : "Tax Remittance Verfication", "route" : "verification-reports"},
   { "label" : "Process Tax Remittance - CA", "route" : "tax-rem-ca"},

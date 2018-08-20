@@ -10,7 +10,7 @@ export class MainMenuService {
 
   constructor(private http: HttpClient) { }
 
-  getAvailablePeriods(): Observable<any>{
+  getAvailablePeriods(): Observable<Period[]>{
 
     return this.http.get<Period[]>("http://localhost:60956/api/menu");
 
