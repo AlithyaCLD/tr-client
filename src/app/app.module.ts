@@ -24,6 +24,8 @@ import { VerificationReportsComponent } from './components/verification-reports/
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';*/
 import { MainMenuService } from './services/main-menu.service';
 import { AppRoutingModule, routingComponents } from './app-routing-module';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { PageFooterComponent } from './components/page-footer/page-footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AppRoutingModule, routingComponents } from './app-routing-module';
     DropdownComponent, // for bootstrap poc
     FooterComponent, // for bootstrap poc*/
 
-    routingComponents
+    routingComponents,    
+    PageHeaderComponent,
+    PageFooterComponent
     /*MainMenuComponent,
     MonthlyDataComponent,
     MainContainerComponent,
