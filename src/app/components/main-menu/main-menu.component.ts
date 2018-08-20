@@ -3,6 +3,7 @@ import { MainMenuService } from '../../services/main-menu.service';
 import { Router } from '@angular/router';
 import { MenuItem } from '../../models/main-menu/menu-item';
 import { Period } from '../../models/main-menu/period';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-menu',
@@ -14,18 +15,18 @@ export class MainMenuComponent implements OnInit {
   constructor(private mainMenuService: MainMenuService, private router:Router) { }  
   private periods = []
   private menus = menuItems;
+  private errorMsg;
 
   ngOnInit() {    
     this.mainMenuService.getAvailablePeriods()
-      .subscribe(data => {
-        console.log(data);
+      .subscribe((data: Period[]) => {        
         this.periods = data;        
       },
-      err => this.mainMenuServiceError()
+      error => this.errorMsg = error
     );
   }
-  mainMenuServiceError() {
-    console.log("err");
+  mainMenuServiceError(httpResponseError: HttpErrorResponse) {
+    console.log("componnent logging: " +  httpResponseError.message);
   }
 }
 const menuItems: MenuItem[] = [

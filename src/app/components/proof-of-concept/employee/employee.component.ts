@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../models/employee/employee';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee',
@@ -9,13 +10,24 @@ import { Employee } from '../../../models/employee/employee';
 })
 export class EmployeeComponent implements OnInit {
 
-  //employees:Employee[]  = [];
+  //employees:Employee[]  = [];  
   employees = [];
+  message;
+  response;
   constructor(private EmployeeService: EmployeeService) { }
 
   ngOnInit() {
     this.EmployeeService.getEmployees().subscribe(
-      data => this.employees = data
+      data => {         
+        this.response = data;
+        console.log(data.status);
+        if (data.status == 200) {
+          this.employees = data.body;
+        }
+        else if (data.status == 206) {          
+         this.message = "employees not found" ;
+        }
+      }
     );
   }
 

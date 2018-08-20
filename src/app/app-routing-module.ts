@@ -18,7 +18,7 @@ import { FooterComponent } from './components/proof-of-concept/footer/footer.com
 const routes: Routes = [
     { path: '', redirectTo: 'main-menu', pathMatch: 'full'},
     //{ path: '', component: MainMenuComponent },
-    { path: 'main-menu', component: MainMenuComponent},
+    { path: 'main-menu', component: MainMenuComponent },
     { path: 'monthly', component: MonthlyDataComponent },
     { path: 'verification-reports', component: VerificationReportsComponent },
     { path: 'tax-rem-ca', component: TaxRemittanceCaComponent },
