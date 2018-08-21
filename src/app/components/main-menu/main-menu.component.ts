@@ -20,14 +20,14 @@ export class MainMenuComponent implements OnInit {
   ngOnInit() {    
     this.mainMenuService.getAvailablePeriods()
       .subscribe(
-        (data: Period[]) => {        
+        data => {        
         this.periods = data;        
       },
       error => this.errorMsg = error
     );
   }
   mainMenuServiceError(httpResponseError: HttpErrorResponse) {
-    console.log("componnent logging: " +  httpResponseError.message);
+    console.log("component logging: " +  httpResponseError.message);
   }
 }
 const menuItems: MenuItem[] = [
