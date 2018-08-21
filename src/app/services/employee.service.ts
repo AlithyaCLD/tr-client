@@ -15,6 +15,7 @@ export class EmployeeService {
     return this.http.get<Employee[]>('http://localhost:60956/api/employee', { observe: 'response' });
       //.pipe(catchError(this.errorHandler));
   }
+  
   private errorHandler(errorResponse: HttpErrorResponse) {
     console.error('EmployeeService.status: ' + errorResponse.status);
     if (errorResponse.error instanceof ErrorEvent) {

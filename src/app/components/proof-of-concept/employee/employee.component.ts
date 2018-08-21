@@ -23,7 +23,7 @@ export class EmployeeComponent implements OnInit {
         console.log(data.status);
         if (data.status == 200) {
           this.employees = data.body;
-        }
+        }        
         else if (data.status == 206) {          
          this.message = "employees not found" ;
         }
@@ -33,6 +33,7 @@ export class EmployeeComponent implements OnInit {
   }
   handleError(error: HttpErrorResponse) {
     this.response = error;
+    this.message = error.status + " / " + error.message;
     console.log("error caught in component : Status => " + error.status);
   }
 }

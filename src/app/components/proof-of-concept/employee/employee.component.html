@@ -1,6 +1,8 @@
 <section class="employees">
   <h3>Employees component; for illustration purpose</h3>
-  <p>Response in json format {{ response | json }}</p>
-  <p>{{ message }}</p>
+  <p>Response in json format {{ response | json }}</p>  
   <p *ngFor='let employee of employees'>{{ employee.EmployeeName }}</p>
+  <section class="error-msg">
+      <p>{{ message }}</p>
+  </section>
 </section>
