@@ -19,7 +19,8 @@ export class MainMenuComponent implements OnInit {
 
   ngOnInit() {    
     this.mainMenuService.getAvailablePeriods()
-      .subscribe((data: Period[]) => {        
+      .subscribe(
+        (data: Period[]) => {        
         this.periods = data;        
       },
       error => this.errorMsg = error

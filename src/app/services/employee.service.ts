@@ -12,12 +12,13 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getEmployees() : Observable<HttpResponse<Employee[]>> {
-    return this.http.get<Employee[]>('http://localhost:60956/api/employee', { observe: 'response' })
-      .pipe(catchError(this.errorHandler));
+    return this.http.get<Employee[]>('http://localhost:60956/api/employee', { observe: 'response' });
+      //.pipe(catchError(this.errorHandler));
   }
   private errorHandler(errorResponse: HttpErrorResponse) {
+    console.error('EmployeeService.status: ' + errorResponse.status);
     if (errorResponse.error instanceof ErrorEvent) {
-      console.error('Client Side Error: ', errorResponse.error.message);
+      console.error('Client Side Error: ', errorResponse.error.message);    
     }
     else {
       console.error('Server Side Error: ' + errorResponse);

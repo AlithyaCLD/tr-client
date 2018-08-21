@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../models/employee/employee';
-import { HttpResponse } from '@angular/common/http';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee',
@@ -27,8 +27,12 @@ export class EmployeeComponent implements OnInit {
         else if (data.status == 206) {          
          this.message = "employees not found" ;
         }
-      }
+      },
+      err => this.handleError(err)
     );
   }
-
+  handleError(error: HttpErrorResponse) {
+    this.response = error;
+    console.log("error caught in component : Status => " + error.status);
+  }
 }
